@@ -1,0 +1,89 @@
+<div style="border-radius: 25px; border: 3px solid #612F74; padding: 20px; width: 200px; height: 80px; margin: auto;">
+    <h1 style="color: #612F74; text-align: center">NuBank</h1>
+</div>
+
+</br>
+<h2 id="apiinformationrobotsvsdinosaurssimulation">API Information - Robots Vs Dinosaurs Simulation</h2>
+
+<p>"Nubank is assembling an army of remote-controlled robots to fight the dinosaurs and the first step towards that is
+    to
+    run simulations on how they will perform. You are tasked with implementing a service that provides an API to support
+    those simulations."</p>
+
+<p>More detailed information about the construction steps to this project refer to the documentation in the project
+    README.md.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ol>
+    <li><a href="http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html"
+           target="_blank">Java 8</a></li>
+
+    <li><a href="https://leiningen.org/" target="_blank">Leiningen</a> <br/>
+        2.1. It was found an error installing Leiningen on Windows. To correct this, in the <em>lein.bat</em> file,
+        change:
+
+        <p>old line 157 > <b>powershell -Command "&amp; {param($a,$f) $client = New-Object System.Net.WebClient;
+            $client.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $client.DownloadFile($a,
+            $f)}" ""%2"" ""%1""</b></p>
+
+        <p>new line 157 > <b>powershell -Command "&amp; {param($a,$f) $client = New-Object System.Net.WebClient;
+            [Net.ServicePointManager]::SecurityProtocol = 'tls12' ; $client.Proxy.Credentials
+            =[System.Net.CredentialCache]::DefaultNetworkCredentials; $client.DownloadFile($a, $f)}" ""%2"" ""%1""</b>
+        </p>
+    </li>
+</ol>
+
+<h2 id="howtoruntheactions">How to run the actions</h2>
+
+<p>The API is made through consulting the REST services. The services can be used direct on your navigator. <br/>
+    To make the use/test of the API easier <a href="https://www.getpostman.com/" target="_blank">Postman</a> was used.
+    Import the <b>postman_collection.json</b> to Postman and you will have all the routines. Note that the requests that
+    need parameters you will need to click on the Params button, next to the Send button.</p>
+
+<ol>
+    <li><p>Create an empty simulation space: <code>localhost:3000/grid-new</code></p></li>
+
+    <li><p>Display the grid: <code>localhost:3000/grid-display</code> <br/>
+        2.1. During development, sometimes it was used this <a href="http://json2table.com/#" target="_blank">link</a>
+        to help to view the grid in a table form. </p></li>
+
+    <li><p>Add robot: <code>localhost:3000/robot-add?col=VALUE&amp;row=VALUE&amp;direction=VALUE</code> <br/>
+        3.1. The facing direction was made using numbers from 1 to 4. The rotation must necessarily follow the numerical
+        sequence 1 to 4, incrementally and clockwise, with position 1 pointing upwards. <br/>
+        RIGHT representation: 1 = up, 2 = right, 3 = down, 4 = left <br/>
+        INCORRECT representation e.g. 1 = low, 2 = right, 3 = up, 4 = left <br/>
+        ---1--- <br/>
+        4-----2 <br/>
+        ---3---</p></li>
+
+    <li><p>Add dinosaur: <code>localhost:3000/dinosaur-add?col=VALUE&amp;row=VALUE</code></p></li>
+
+    <li><p>Robot turn direction:
+        <code>localhost:3000/robot-turn-direction?col=VALUE&amp;row=VALUE&amp;direction=VALUE</code> <br/>
+        5.1. Direction can be <code>left</code> or <code>right</code></p></li>
+
+    <li><p>Robot move: <code>localhost:3000/robot-move?col=VALUE&amp;row=VALUE&amp;direction=VALUE</code> <br/>
+        6.1. Direction can be <code>backward</code> or <code>forward</code></p></li>
+
+    <li><p>Robot attack: <code>localhost:3000/robot-attack?col=VALUE&amp;row=VALUE</code></p></li>
+</ol>
+
+<h2 id="howtoruntests">How to run tests</h2>
+
+<p>Unit tests were implemented using <a href="https://github.com/marick/Midje" target="_blank">Midje</a>. <code><b>lein
+    midje</b></code> <br/>
+    Integration tests were implemented using Clojure Tests and <a href="https://github.com/ring-clojure/ring-mock"
+                                                                  target="_blank">Ring Mock</a>. <code><b>lein test</b></code>
+    or the <code><b>lein midje</b></code> will run the integration tests too.</p>
+
+<h2 id="howtorun">How to run the API</h2>
+
+<ol>
+    <li>Generating jar with embedded Jetty Server <br/>
+        1.1. <code><b>lein uberjar</b></code> <br/>
+        1.2. <code><b>java -jar target/file_name.jar</b></code></li>
+
+    <li>using leiningen <br/>
+        2.1. <code><b>lein trampoline ring server</b></code></li>
+</ol>

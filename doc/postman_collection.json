@@ -1,0 +1,217 @@
+{
+  "info": {
+    "_postman_id": "fc4b5289-aa9c-4091-9bad-49c2b50eb32e",
+    "name": "nubank_robot-vs-dinosaurs_api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "grid-new",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/grid-new",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "grid-new"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "grid-display",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/grid-display",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "grid-display"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "robot-add",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/robot-add?col=&row=&direction=",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "robot-add"
+          ],
+          "query": [
+            {
+              "key": "col",
+              "value": "",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "row",
+              "value": "",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "direction",
+              "value": "",
+              "description": "1 = up; 2 = right; 3 = down; 4 = left "
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "dinosaur-add",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/dinosaur-add?col=1&row=0",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "dinosaur-add"
+          ],
+          "query": [
+            {
+              "key": "col",
+              "value": "1",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "row",
+              "value": "0",
+              "description": "value between 0 and 49"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "robot-turn-side",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/robot-turn-direction?col=1&row=1&direction=left",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "robot-turn-direction"
+          ],
+          "query": [
+            {
+              "key": "col",
+              "value": "1",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "row",
+              "value": "1",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "direction",
+              "value": "left",
+              "description": "right or left"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "robot-move",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/robot-move?col=1&row=1&direction=backward",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "robot-move"
+          ],
+          "query": [
+            {
+              "key": "col",
+              "value": "1",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "row",
+              "value": "1",
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "direction",
+              "value": "backward",
+              "description": "forward or backward"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "robot-attack",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:3000/robot-attack?col&row",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "robot-attack"
+          ],
+          "query": [
+            {
+              "key": "col",
+              "value": null,
+              "description": "value between 0 and 49"
+            },
+            {
+              "key": "row",
+              "value": null,
+              "description": "value between 0 and 49"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
